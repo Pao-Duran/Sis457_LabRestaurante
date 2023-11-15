@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClnRestaurante
 {
-    public class Class1
+    internal class UsuarioCln
     {
     }
 }
