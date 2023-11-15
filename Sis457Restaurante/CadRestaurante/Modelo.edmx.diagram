@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2aef59ac6f9d46eda8aba8b037d71b51" Name="Diagram1">
+        <EntityTypeShape EntityType="LabRestauranteModel.Bebida" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabRestauranteModel.Cliente" Width="1.5" PointX="3.875" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabRestauranteModel.Comida" Width="1.5" PointX="8.125" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabRestauranteModel.DetalleFactura" Width="1.5" PointX="6.875" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabRestauranteModel.Empleado" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabRestauranteModel.Usuario" Width="1.5" PointX="4" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="LabRestauranteModel.fk_DetalleFactura_Bebida" ManuallyRouted="false" />
+        <AssociationConnector Association="LabRestauranteModel.fk_DetalleFactura_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="LabRestauranteModel.fk_DetalleFactura_Comida" ManuallyRouted="false" />
+        <AssociationConnector Association="LabRestauranteModel.fk_DetalleFactura_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="LabRestauranteModel.fk_Usuario_Empleado" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
