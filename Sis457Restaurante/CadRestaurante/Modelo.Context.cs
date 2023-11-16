@@ -15,10 +15,10 @@ namespace CadRestaurante
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class LabRestauranteEntities : DbContext
+    public partial class LabRestauranteMPEntities : DbContext
     {
-        public LabRestauranteEntities()
-            : base("name=LabRestauranteEntities")
+        public LabRestauranteMPEntities()
+            : base("name=LabRestauranteMPEntities")
         {
         }
     
@@ -30,8 +30,8 @@ namespace CadRestaurante
         public virtual DbSet<Bebida> Bebida { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Comida> Comida { get; set; }
-        public virtual DbSet<DetalleFactura> DetalleFactura { get; set; }
         public virtual DbSet<Empleado> Empleado { get; set; }
+        public virtual DbSet<Factura> Factura { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
     
         public virtual ObjectResult<paBebidaListar_Result> paBebidaListar(string parametro)
@@ -61,15 +61,6 @@ namespace CadRestaurante
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paComidaListar_Result>("paComidaListar", parametroParameter);
         }
     
-        public virtual ObjectResult<paDetalleFacturaListar_Result> paDetalleFacturaListar(string parametro)
-        {
-            var parametroParameter = parametro != null ?
-                new ObjectParameter("parametro", parametro) :
-                new ObjectParameter("parametro", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paDetalleFacturaListar_Result>("paDetalleFacturaListar", parametroParameter);
-        }
-    
         public virtual ObjectResult<paEmpleadoListar_Result> paEmpleadoListar(string parametro)
         {
             var parametroParameter = parametro != null ?
@@ -79,13 +70,13 @@ namespace CadRestaurante
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paEmpleadoListar_Result>("paEmpleadoListar", parametroParameter);
         }
     
-        public virtual ObjectResult<paUsuarioListar_Result> paUsuarioListar(string parametro)
+        public virtual int paFacturaListar(string parametro)
         {
             var parametroParameter = parametro != null ?
                 new ObjectParameter("parametro", parametro) :
                 new ObjectParameter("parametro", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paUsuarioListar_Result>("paUsuarioListar", parametroParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("paFacturaListar", parametroParameter);
         }
     }
 }

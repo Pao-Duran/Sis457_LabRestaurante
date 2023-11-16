@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d29e4974c9894fffadade671026a60fc" Name="Diagram1">
-        <EntityTypeShape EntityType="LabRestauranteModel.Bebida" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabRestauranteModel.Cliente" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabRestauranteModel.Comida" Width="1.5" PointX="0.75" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabRestauranteModel.DetalleFactura" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabRestauranteModel.Empleado" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabRestauranteModel.Usuario" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
-        <AssociationConnector Association="LabRestauranteModel.fk_DetalleFactura_Bebida" ManuallyRouted="false" />
-        <AssociationConnector Association="LabRestauranteModel.fk_DetalleFactura_Cliente" ManuallyRouted="false" />
-        <AssociationConnector Association="LabRestauranteModel.fk_DetalleFactura_Comida" ManuallyRouted="false" />
-        <AssociationConnector Association="LabRestauranteModel.fk_DetalleFactura_Empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="LabRestauranteModel.fk_Usuario_Empleado" ManuallyRouted="false" />
+      <Diagram DiagramId="91c712b7a253462f99cf1f20b8503da2" Name="Diagram1">
+        <EntityTypeShape EntityType="LabRestauranteMPModel.Bebida" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabRestauranteMPModel.Cliente" Width="1.5" PointX="1.875" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabRestauranteMPModel.Comida" Width="1.5" PointX="6.875" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabRestauranteMPModel.Empleado" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabRestauranteMPModel.Factura" Width="1.5" PointX="8.125" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabRestauranteMPModel.Usuario" Width="1.5" PointX="5.875" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="LabRestauranteMPModel.fk_Factura_Bebida" ManuallyRouted="false" />
+        <AssociationConnector Association="LabRestauranteMPModel.fk_Factura_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="LabRestauranteMPModel.fk_Factura_Comida" ManuallyRouted="false" />
+        <AssociationConnector Association="LabRestauranteMPModel.fk_Factura_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="LabRestauranteMPModel.fk_Usuario_Empleado" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

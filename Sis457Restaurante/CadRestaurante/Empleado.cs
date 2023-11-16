@@ -17,7 +17,7 @@ namespace CadRestaurante
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Empleado()
         {
-            this.DetalleFactura = new HashSet<DetalleFactura>();
+            this.Factura = new HashSet<Factura>();
             this.Usuario = new HashSet<Usuario>();
         }
     
@@ -25,7 +25,7 @@ namespace CadRestaurante
         public string nombre { get; set; }
         public string primerApellido { get; set; }
         public string segundoApellido { get; set; }
-        public long telefono { get; set; }
+        public string telefono { get; set; }
         public string direccion { get; set; }
         public string cargo { get; set; }
         public string usuarioRegistro { get; set; }
@@ -33,7 +33,7 @@ namespace CadRestaurante
         public short estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetalleFactura> DetalleFactura { get; set; }
+        public virtual ICollection<Factura> Factura { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario> Usuario { get; set; }
     }

@@ -17,7 +17,7 @@ namespace CadRestaurante
         public string nombre { get; set; }
         public string primerApellido { get; set; }
         public string segundoApellido { get; set; }
-        public long telefono { get; set; }
+        public string telefono { get; set; }
         public string direccion { get; set; }
         public string cargo { get; set; }
         public string usuarioRegistro { get; set; }

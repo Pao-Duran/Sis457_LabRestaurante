@@ -10,8 +10,9 @@
 namespace CadRestaurante
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class paDetalleFacturaListar_Result
+    public partial class Factura
     {
         public int id { get; set; }
         public int idCliente { get; set; }
@@ -21,5 +22,10 @@ namespace CadRestaurante
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }
+    
+        public virtual Bebida Bebida { get; set; }
+        public virtual Cliente Cliente { get; set; }
+        public virtual Comida Comida { get; set; }
+        public virtual Empleado Empleado { get; set; }
     }
 }

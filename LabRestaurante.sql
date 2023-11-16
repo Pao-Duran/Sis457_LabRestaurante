@@ -1,36 +1,36 @@
-﻿CREATE DATABASE LabRestaurante;
-
+﻿CREATE DATABASE LabRestauranteMP;
 USE master
 GO
 
-CREATE LOGIN usrrestaurante WITH PASSWORD=N'123456',
-	DEFAULT_DATABASE=LabRestaurante,
+CREATE LOGIN usrrestaurantemp WITH PASSWORD=N'123456',
+	DEFAULT_DATABASE=LabRestauranteMP,
 	CHECK_EXPIRATION=OFF,
 	CHECK_POLICY=ON
 GO
 
-USE LabRestaurante
+USE LabRestauranteMP
 GO
 
-CREATE USER usrrestaurante FOR LOGIN usrrestaurante
+CREATE USER usrrestaurantemp FOR LOGIN usrrestaurantemp
 GO
-ALTER ROLE db_owner ADD MEMBER usrrestaurante
+ALTER ROLE db_owner ADD MEMBER usrrestaurantemp
 GO
 
 --ELIMINAR TABLAS 
 DROP TABLE Cliente;
 DROP TABLE Empleado;
+DROP TABLE Usuario;
 DROP TABLE Comida;
 DROP TABLE detalleFactura;
 DROP TABLE Bebida;
-DROP TABLE Usuario;
+
 
 --CREACION DE TABLAS 
 
 CREATE TABLE Usuario (
   id INT PRIMARY KEY IDENTITY (1,1),
-  nombre VARCHAR(30) NOT NULL,
-  clave VARCHAR(10) NOT NULL,
+  usuario VARCHAR(30) NOT NULL,
+  clave VARCHAR(100) NOT NULL,
   idEmpleado INT NOT NULL,
 
   CONSTRAINT fk_Usuario_Empleado FOREIGN KEY(idEmpleado) REFERENCES Empleado(id)
@@ -52,7 +52,7 @@ id INT PRIMARY KEY IDENTITY(1,1),
 nombre VARCHAR(30) NOT NULL,
 primerApellido VARCHAR (30) NOT NULL,
 segundoApellido VARCHAR(30) NOT NULL,
-telefono BIGINT NOT NULL,
+telefono VARCHAR(8) NOT NULL,
 direccion VARCHAR(30) NOT NULL,
 cargo VARCHAR(30) NOT NULL
 );
@@ -65,7 +65,7 @@ precio DECIMAL NOT NULL
 );
 
 
-CREATE TABLE DetalleFactura (
+CREATE TABLE Factura (
 id INT PRIMARY KEY IDENTITY(1,1),
 idCliente INT NOT NULL,
 idEmpleado INT NOT NULL,
@@ -73,10 +73,10 @@ idComida INT NOT NULL,
 idBebida INT NOT NULL,
 
 
- CONSTRAINT fk_DetalleFactura_Cliente FOREIGN KEY(idCliente) REFERENCES Cliente(id),
- CONSTRAINT fk_DetalleFactura_Empleado FOREIGN KEY(idEmpleado) REFERENCES Empleado(id),
- CONSTRAINT fk_DetalleFactura_Comida FOREIGN KEY(idComida) REFERENCES Comida(id),
- CONSTRAINT fk_DetalleFactura_Bebida FOREIGN KEY(idBebida) REFERENCES Bebida(id),
+ CONSTRAINT fk_Factura_Cliente FOREIGN KEY(idCliente) REFERENCES Cliente(id),
+ CONSTRAINT fk_Factura_Empleado FOREIGN KEY(idEmpleado) REFERENCES Empleado(id),
+ CONSTRAINT fk_Factura_Comida FOREIGN KEY(idComida) REFERENCES Comida(id),
+ CONSTRAINT fk_Factura_Bebida FOREIGN KEY(idBebida) REFERENCES Bebida(id),
 
 );
 
@@ -85,8 +85,7 @@ CREATE TABLE Bebida (
 id INT PRIMARY KEY IDENTITY(1,1),
 nombre VARCHAR (50) NOT NULL,
 precio DECIMAL NOT NULL,
-marca VARCHAR(50),
-descripcion VARCHAR(100) NOT NULL
+marca VARCHAR(50)
 );
 
 ALTER TABLE Usuario  ADD usuarioRegistro VARCHAR (20) NOT NULL DEFAULT SUSER_NAME();
@@ -98,9 +97,9 @@ ALTER TABLE Cliente  ADD usuarioRegistro VARCHAR (20) NOT NULL DEFAULT SUSER_NAM
 ALTER TABLE Cliente ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
 ALTER TABLE Cliente ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: eliminacion logica, 0: inactivo, 1: activo
 
-ALTER TABLE DetalleFactura  ADD usuarioRegistro VARCHAR (20) NOT NULL DEFAULT SUSER_NAME();
-ALTER TABLE DetalleFactura ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
-ALTER TABLE DetalleFactura ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: eliminacion logica, 0: inactivo, 1: activo
+ALTER TABLE Factura  ADD usuarioRegistro VARCHAR (20) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Factura ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Factura ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: eliminacion logica, 0: inactivo, 1: activo
 
 ALTER TABLE Empleado  ADD usuarioRegistro VARCHAR (20) NOT NULL DEFAULT SUSER_NAME();
 ALTER TABLE Empleado ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
@@ -174,7 +173,7 @@ AS
 
 
   --DETALLE FACTURA
-  CREATE PROC paDetalleFacturaListar @parametro VARCHAR(50) 
+  CREATE PROC paFacturaListar @parametro VARCHAR(50) 
 AS
   SELECT id,idCliente,idEmpleado,idComida,idBebida,usuarioRegistro,fechaRegistro, estado 
   FROM detalleFactura
@@ -190,9 +189,9 @@ AS
 --BEBIDA
 CREATE PROC paBebidaListar @parametro VARCHAR(50)
 AS
-  SELECT id, nombre, precio, marca, descripcion, usuarioRegistro,fechaRegistro, estado 
+  SELECT id, nombre, precio, marca, usuarioRegistro,fechaRegistro, estado 
   FROM Bebida
-  WHERE estado <> -1 AND descripcion LIKE '%'+ REPLACE (@parametro,' ','%')+'%';
+  WHERE estado <> -1 AND nombre LIKE '%'+ REPLACE (@parametro,' ','%')+'%';
 
 
 
