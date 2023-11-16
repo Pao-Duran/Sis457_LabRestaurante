@@ -11,7 +11,7 @@ namespace ClnRestaurante
     {
         public static int insertar(Empleado empleado)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 context.Empleado.Add(empleado);
                 context.SaveChanges();
@@ -21,7 +21,7 @@ namespace ClnRestaurante
 
         public static int actualizar(Empleado empleado)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 var existente = context.Empleado.Find(empleado.id);
                 existente.nombre = empleado.nombre;
@@ -37,7 +37,7 @@ namespace ClnRestaurante
 
         public static int eliminar(int id, string usuarioRegistro)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 var existente = context.Empleado.Find(id);
                 existente.estado = -1;
@@ -48,7 +48,7 @@ namespace ClnRestaurante
 
         public static Empleado get(int id)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 return context.Empleado.Find(id);
             }
@@ -56,7 +56,7 @@ namespace ClnRestaurante
 
         public static List<Empleado> listar()
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 return context.Empleado.Where(x => x.estado != -1).ToList();
             }
@@ -64,7 +64,7 @@ namespace ClnRestaurante
 
         public static List<paEmpleadoListar_Result> listarPa(string parametro)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 return context.paEmpleadoListar(parametro).ToList();
             }

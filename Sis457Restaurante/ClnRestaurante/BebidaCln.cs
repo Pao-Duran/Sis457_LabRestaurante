@@ -13,7 +13,7 @@ namespace ClnRestaurante
         public static int insertar(Bebida bebida)
 
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 context.Bebida.Add(bebida);
                 context.SaveChanges();
@@ -23,11 +23,11 @@ namespace ClnRestaurante
 
         public static int actualizar(Bebida bebida)
         {
-            using (var context = new LabRestauranteEntities()) {
+            using (var context = new LabRestauranteMPEntities()) {
                 var existente = context.Bebida.Find(bebida.id);
                 existente.nombre = bebida.nombre;
                 existente.precio = bebida.precio;
-                existente.descripcion = bebida.descripcion;
+               
                 existente.usuarioRegistro = bebida.usuarioRegistro;
                 return context.SaveChanges();
             }
@@ -36,7 +36,7 @@ namespace ClnRestaurante
 
         public static int eliminar(int id, string usuarioRegistro)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 var existente = context.Bebida.Find(id);
                 existente.estado = -1;
@@ -47,7 +47,7 @@ namespace ClnRestaurante
 
         public static Bebida get(int id)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 return context.Bebida.Find(id);
             }
@@ -55,7 +55,7 @@ namespace ClnRestaurante
 
         public static List<Bebida> listar()
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 return context.Bebida.Where(x => x.estado != -1).ToList();
             }
@@ -63,7 +63,7 @@ namespace ClnRestaurante
 
         public static List<paBebidaListar_Result> listarPa(string parametro)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 return context.paBebidaListar(parametro).ToList();
             }

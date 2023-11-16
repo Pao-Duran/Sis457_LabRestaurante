@@ -1,4 +1,5 @@
-﻿using ClnRestaurante;
+﻿using CadRestaurante;
+using ClnRestaurante;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,7 +65,7 @@ namespace CpRestaurante
             txtNombre.Text = empleado.nombre;
             txtPrimerApellido.Text = empleado.primerApellido;
             txtSegundoApellido.Text = empleado.segundoApellido;
-            nudTelefono.Value = empleado.telefono;
+            txtTelefono.Text = empleado.telefono;
             txtDireccion.Text = empleado.direccion;
             txtCargo.Text = empleado.cargo;
 
@@ -74,7 +75,7 @@ namespace CpRestaurante
             txtNombre.Text = string.Empty;
             txtPrimerApellido.Text = string.Empty;
             txtSegundoApellido.Text = string.Empty;
-            nudTelefono.Value = 0;
+            txtTelefono.Text = string.Empty;
             txtDireccion.Text = string.Empty;
             txtCargo.Text = string.Empty;
         }
@@ -100,9 +101,89 @@ namespace CpRestaurante
             erpNombre.SetError(txtNombre, "");
             erpPrimerApellido.SetError(txtPrimerApellido, "");
             erpSegundoApellido.SetError(txtSegundoApellido, "");
-            erpTelefono.SetError(nudTelefono, "");
+            erpTelefono.SetError(txtTelefono, "");
             erpNombre.SetError(txtNombre, "");
             erpNombre.SetError(txtNombre, "");
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                esValido = false;
+                erpNombre.SetError(txtNombre, "el campo nombre es obligatorio");
+            }
+            if (string.IsNullOrEmpty(txtPrimerApellido.Text))
+            {
+                esValido = false;
+                erpNombre.SetError(txtPrimerApellido, "el campo apellido paterno es obligatorio");
+            }
+            if (string.IsNullOrEmpty(txtSegundoApellido.Text))
+            {
+                esValido = false;
+                erpNombre.SetError(txtSegundoApellido, "el campo apellido materno es obligatorio");
+            }
+            if (string.IsNullOrEmpty(txtTelefono.Text))
+            {
+                esValido = false;
+                erpNombre.SetError(txtTelefono, "el campo telefono es obligatorio");
+            }
+            if (string.IsNullOrEmpty(txtDireccion.Text))
+            {
+                esValido = false;
+                erpNombre.SetError(txtDireccion, "el campo direccion es obligatorio");
+            }
+            if (string.IsNullOrEmpty(txtCargo.Text))
+            {
+                esValido = false;
+                erpNombre.SetError(txtCargo, "el campo cargo es obligatorio");
+            }
+            return esValido;
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (validar())
+            {
+                var empleado = new Empleado();
+                empleado.nombre = txtNombre.Text.Trim();
+                empleado.primerApellido = txtPrimerApellido.Text.Trim();
+                empleado.segundoApellido = txtSegundoApellido.Text.Trim();
+                empleado.telefono = txtTelefono.Text.Trim();
+                empleado.direccion = txtDireccion.Text.Trim();
+                empleado.cargo = txtCargo.Text.Trim();
+
+                if (esNuevo)
+                {
+                    empleado.fechaRegistro = DateTime.Now;
+                    empleado.estado = 1;
+                    EmpleadoCln.insertar(empleado);
+                }
+                else
+                {
+                    int index = dgvLista.CurrentCell.RowIndex;
+                    empleado.id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
+                    EmpleadoCln.actualizar(empleado);
+                }
+                listar();
+                btnCancelar.PerformClick();
+                MessageBox.Show("Empleado guardado correctamente", "::: Restaurante - Mensaje :::",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            int index = dgvLista.CurrentCell.RowIndex;
+            int id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
+            string nombre = dgvLista.Rows[index].Cells["nombre"].Value.ToString();
+            DialogResult dialog = MessageBox.Show($"¿Está seguro que desea dar de baja el producto {nombre}?",
+               "::: Restaurante - Mensaje :::", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dialog == DialogResult.OK)
+            {
+                EmpleadoCln.eliminar(id, "SIS457");
+                listar();
+                MessageBox.Show("Producto dado de baja correctamente", "::: Restaurante - Mensaje :::",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

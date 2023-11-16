@@ -1,0 +1,2 @@
+E:\SIS457-RESTAURANTE\Sis457Restaurante\ClnRestaurante\obj\Debug\ClnRestaurante.csproj.AssemblyReference.cache
+E:\SIS457-RESTAURANTE\Sis457Restaurante\ClnRestaurante\obj\Debug\ClnRestaurante.csproj.CoreCompileInputs.cache

@@ -9,62 +9,62 @@ namespace ClnRestaurante
 {
     public class DetalleFacturaCln
     {
-        public static int insertar(DetalleFactura detalleFactura)
+        public static int insertar(Factura factura)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
-                context.DetalleFactura.Add(detalleFactura);
+                context.Factura.Add(factura);
                 context.SaveChanges();
-                return detalleFactura.id;
+                return factura.id;
             }
         }
 
-        public static int actualizar(DetalleFactura detalleFactura)
+        public static int actualizar(Factura Factura)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
-                var existente = context.DetalleFactura.Find(detalleFactura.id);
-                existente.idCliente = detalleFactura.idCliente;
-                existente.idEmpleado = detalleFactura.idEmpleado;
-                existente.idComida = detalleFactura.idComida;
-                existente.idBebida = detalleFactura.idBebida;
-                existente.usuarioRegistro = detalleFactura.usuarioRegistro;
+                var existente = context.Factura.Find(Factura.id);
+                existente.idCliente = Factura.idCliente;
+                existente.idEmpleado = Factura.idEmpleado;
+                existente.idComida = Factura.idComida;
+                existente.idBebida = Factura.idBebida;
+                existente.usuarioRegistro =Factura.usuarioRegistro;
                 return context.SaveChanges();
             }
         }
 
         public static int eliminar(int id, string usuarioRegistro)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
-                var existente = context.DetalleFactura.Find(id);
+                var existente = context.Factura.Find(id);
                 existente.estado = -1;
                 existente.usuarioRegistro = usuarioRegistro;
                 return context.SaveChanges();
             }
         }
 
-        public static DetalleFactura get(int id)
+        public static Factura get(int id)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
-                return context.DetalleFactura.Find(id);
+                return context.Factura.Find(id);
             }
         }
 
-        public static List<DetalleFactura> listar()
+        public static List<Factura> listar()
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
-                return context.DetalleFactura.Where(x => x.estado != -1).ToList();
+                return context.Factura.Where(x => x.estado != -1).ToList();
             }
         }
 
-        public static List<paDetalleFacturaListar_Result> listarPa(string parametro)
+        public static List<paFacturasListar_Result> listarPa(string parametro)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
-                return context.paDetalleFacturaListar(parametro).ToList();
+                return context.paFacturasListar(parametro).ToList();
             }
         }
     }

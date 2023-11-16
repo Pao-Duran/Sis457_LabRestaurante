@@ -173,10 +173,10 @@ AS
 
 
   --DETALLE FACTURA
-  CREATE PROC paFacturaListar @parametro VARCHAR(50) 
+  CREATE PROC paFacturasListar @parametro VARCHAR(50) 
 AS
   SELECT id,idCliente,idEmpleado,idComida,idBebida,usuarioRegistro,fechaRegistro, estado 
-  FROM detalleFactura
+  FROM Factura
   WHERE estado <> -1 AND idCliente LIKE '%'+ REPLACE (@parametro,' ','%')+'%';
 
 

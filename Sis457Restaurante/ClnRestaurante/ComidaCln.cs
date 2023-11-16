@@ -11,7 +11,7 @@ namespace ClnRestaurante
     {
         public static int insertar(Comida comida)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 context.Comida.Add(comida);
                 context.SaveChanges();
@@ -21,7 +21,7 @@ namespace ClnRestaurante
 
         public static int actualizar(Comida comida)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 var existente = context.Comida.Find(comida.id);
                 existente.nombre = comida.nombre;
@@ -33,7 +33,7 @@ namespace ClnRestaurante
 
         public static int eliminar(int id, string usuarioRegistro)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 var existente = context.Comida.Find(id);
                 existente.estado = -1;
@@ -44,7 +44,7 @@ namespace ClnRestaurante
 
         public static Comida get(int id)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 return context.Comida.Find(id);
             }
@@ -52,7 +52,7 @@ namespace ClnRestaurante
 
         public static List<Comida> listar()
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 return context.Comida.Where(x => x.estado != -1).ToList();
             }
@@ -60,7 +60,7 @@ namespace ClnRestaurante
 
         public static List<paComidaListar_Result> listarPa(string parametro)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 return context.paComidaListar(parametro).ToList();
             }

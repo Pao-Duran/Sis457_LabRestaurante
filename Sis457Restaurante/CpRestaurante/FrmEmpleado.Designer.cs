@@ -36,7 +36,6 @@
             this.dgvLista = new System.Windows.Forms.DataGridView();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
             this.txtCargo = new System.Windows.Forms.TextBox();
-            this.nudTelefono = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtSegundoApellido = new System.Windows.Forms.TextBox();
@@ -62,9 +61,9 @@
             this.erpTelefono = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpDireccion = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpCargo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.gbxDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTelefono)).BeginInit();
             this.pnlAcciones.SuspendLayout();
             this.gbxLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erpNombre)).BeginInit();
@@ -123,8 +122,8 @@
             // 
             // gbxDatos
             // 
+            this.gbxDatos.Controls.Add(this.txtTelefono);
             this.gbxDatos.Controls.Add(this.txtCargo);
-            this.gbxDatos.Controls.Add(this.nudTelefono);
             this.gbxDatos.Controls.Add(this.label4);
             this.gbxDatos.Controls.Add(this.txtDireccion);
             this.gbxDatos.Controls.Add(this.txtSegundoApellido);
@@ -152,13 +151,6 @@
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(160, 26);
             this.txtCargo.TabIndex = 28;
-            // 
-            // nudTelefono
-            // 
-            this.nudTelefono.Location = new System.Drawing.Point(526, 19);
-            this.nudTelefono.Name = "nudTelefono";
-            this.nudTelefono.Size = new System.Drawing.Size(160, 26);
-            this.nudTelefono.TabIndex = 27;
             // 
             // label4
             // 
@@ -274,6 +266,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // pnlAcciones
             // 
@@ -313,6 +306,7 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -393,6 +387,13 @@
             // 
             this.erpCargo.ContainerControl = this;
             // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(526, 14);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(160, 26);
+            this.txtTelefono.TabIndex = 29;
+            // 
             // FrmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -415,7 +416,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.gbxDatos.ResumeLayout(false);
             this.gbxDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudTelefono)).EndInit();
             this.pnlAcciones.ResumeLayout(false);
             this.gbxLista.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.erpNombre)).EndInit();
@@ -455,7 +455,6 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.NumericUpDown nudTelefono;
         private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.ErrorProvider erpNombre;
         private System.Windows.Forms.ErrorProvider erpPrimerApellido;
@@ -463,5 +462,6 @@
         private System.Windows.Forms.ErrorProvider erpTelefono;
         private System.Windows.Forms.ErrorProvider erpDireccion;
         private System.Windows.Forms.ErrorProvider erpCargo;
+        private System.Windows.Forms.TextBox txtTelefono;
     }
 }

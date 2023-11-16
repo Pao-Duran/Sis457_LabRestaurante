@@ -1,0 +1,5 @@
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.csproj.AssemblyReference.cache
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.FrmEmpleado.resources
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.Properties.Resources.resources
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.csproj.GenerateResource.cache
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.csproj.CoreCompileInputs.cache
