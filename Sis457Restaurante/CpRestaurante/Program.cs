@@ -16,7 +16,7 @@ namespace CpRestaurante
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmEmpleado());
+            Application.Run(new frmCliente());
         }
     }
 }

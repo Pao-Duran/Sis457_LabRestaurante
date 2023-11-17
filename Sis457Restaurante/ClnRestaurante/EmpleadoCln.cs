@@ -29,7 +29,7 @@ namespace ClnRestaurante
                 existente.segundoApellido = empleado.segundoApellido;
                 existente.telefono = empleado.telefono;
                 existente.direccion = empleado.direccion;
-                existente.cargo = existente.cargo;
+                existente.cargo = empleado.cargo;
                 existente.usuarioRegistro = empleado.usuarioRegistro;
                 return context.SaveChanges();
             }

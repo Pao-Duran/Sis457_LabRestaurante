@@ -21,7 +21,7 @@ DROP TABLE Cliente;
 DROP TABLE Empleado;
 DROP TABLE Usuario;
 DROP TABLE Comida;
-DROP TABLE detalleFactura;
+DROP TABLE Factura;
 DROP TABLE Bebida;
 
 
@@ -173,7 +173,7 @@ AS
 
 
   --DETALLE FACTURA
-  CREATE PROC paFacturasListar @parametro VARCHAR(50) 
+  CREATE PROC paFacturarListar @parametro VARCHAR(50) 
 AS
   SELECT id,idCliente,idEmpleado,idComida,idBebida,usuarioRegistro,fechaRegistro, estado 
   FROM Factura
@@ -187,7 +187,7 @@ AS
 
 
 --BEBIDA
-CREATE PROC paBebidaListar @parametro VARCHAR(50)
+CREATE PROC paBebidasListar @parametro VARCHAR(50)
 AS
   SELECT id, nombre, precio, marca, usuarioRegistro,fechaRegistro, estado 
   FROM Bebida

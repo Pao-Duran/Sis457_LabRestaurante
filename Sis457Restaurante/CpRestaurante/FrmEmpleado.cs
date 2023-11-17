@@ -81,7 +81,7 @@ namespace CpRestaurante
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Size = new Size(738, 638);
+            Size = new Size(738, 438);
             limpiar();
         }
 
@@ -102,8 +102,9 @@ namespace CpRestaurante
             erpPrimerApellido.SetError(txtPrimerApellido, "");
             erpSegundoApellido.SetError(txtSegundoApellido, "");
             erpTelefono.SetError(txtTelefono, "");
-            erpNombre.SetError(txtNombre, "");
-            erpNombre.SetError(txtNombre, "");
+            erpDireccion.SetError(txtTelefono, "");
+            erpCargo.SetError(txtCargo, "");
+
             if (string.IsNullOrEmpty(txtNombre.Text))
             {
                 esValido = false;
@@ -112,27 +113,27 @@ namespace CpRestaurante
             if (string.IsNullOrEmpty(txtPrimerApellido.Text))
             {
                 esValido = false;
-                erpNombre.SetError(txtPrimerApellido, "el campo apellido paterno es obligatorio");
+                erpPrimerApellido.SetError(txtPrimerApellido, "el campo apellido paterno es obligatorio");
             }
             if (string.IsNullOrEmpty(txtSegundoApellido.Text))
             {
                 esValido = false;
-                erpNombre.SetError(txtSegundoApellido, "el campo apellido materno es obligatorio");
+                erpSegundoApellido.SetError(txtSegundoApellido, "el campo apellido materno es obligatorio");
             }
             if (string.IsNullOrEmpty(txtTelefono.Text))
             {
                 esValido = false;
-                erpNombre.SetError(txtTelefono, "el campo telefono es obligatorio");
+                erpTelefono.SetError(txtTelefono, "el campo telefono es obligatorio");
             }
             if (string.IsNullOrEmpty(txtDireccion.Text))
             {
                 esValido = false;
-                erpNombre.SetError(txtDireccion, "el campo direccion es obligatorio");
+                erpDireccion.SetError(txtDireccion, "el campo direccion es obligatorio");
             }
             if (string.IsNullOrEmpty(txtCargo.Text))
             {
                 esValido = false;
-                erpNombre.SetError(txtCargo, "el campo cargo es obligatorio");
+                erpCargo.SetError(txtCargo, "el campo cargo es obligatorio");
             }
             return esValido;
 
@@ -149,6 +150,7 @@ namespace CpRestaurante
                 empleado.telefono = txtTelefono.Text.Trim();
                 empleado.direccion = txtDireccion.Text.Trim();
                 empleado.cargo = txtCargo.Text.Trim();
+                empleado.usuarioRegistro = "LabRestaurante";
 
                 if (esNuevo)
                 {
@@ -184,6 +186,11 @@ namespace CpRestaurante
                 MessageBox.Show("Producto dado de baja correctamente", "::: Restaurante - Mensaje :::",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

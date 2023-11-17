@@ -60,11 +60,11 @@ namespace ClnRestaurante
             }
         }
 
-        public static List<paFacturasListar_Result> listarPa(string parametro)
+        public static List<paFacturarListar_Result> listarPa(string parametro)
         {
             using (var context = new LabRestauranteMPEntities())
             {
-                return context.paFacturasListar(parametro).ToList();
+                return context.paFacturarListar(parametro).ToList();
             }
         }
     }

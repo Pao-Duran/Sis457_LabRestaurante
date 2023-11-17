@@ -83,7 +83,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Modelo.edmx</DependentUpon>
     </Compile>
-    <Compile Include="paBebidaListar_Result.cs">
+    <Compile Include="paBebidasListar_Result.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="paClienteListar_Result.cs">
@@ -95,7 +95,7 @@
     <Compile Include="paEmpleadoListar_Result.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="paFacturasListar_Result.cs">
+    <Compile Include="paFacturarListar_Result.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

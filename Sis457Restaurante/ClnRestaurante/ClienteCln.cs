@@ -11,7 +11,7 @@ namespace ClnRestaurante
     {
         public static int insertar(Cliente cliente)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 context.Cliente.Add(cliente);
                 context.SaveChanges();
@@ -21,14 +21,13 @@ namespace ClnRestaurante
 
         public static int actualizar(Cliente cliente)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 var existente = context.Cliente.Find(cliente.id);
                 existente.nombre = cliente.nombre;
                 existente.primerApellido = cliente.primerApellido;
                 existente.segundoApellido = cliente.segundoApellido;
-                existente.cedulaIdentidad = cliente.cedulaIdentidad;
-        
+                existente.cedulaIdentidad = cliente.cedulaIdentidad;        
                 existente.usuarioRegistro = cliente.usuarioRegistro;
                 return context.SaveChanges();
             }
@@ -36,7 +35,7 @@ namespace ClnRestaurante
 
         public static int eliminar(int id, string usuarioRegistro)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 var existente = context.Cliente.Find(id);
                 existente.estado = -1;
@@ -47,7 +46,7 @@ namespace ClnRestaurante
 
         public static Cliente get(int id)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 return context.Cliente.Find(id);
             }
@@ -55,7 +54,7 @@ namespace ClnRestaurante
 
         public static List<Cliente> listar()
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 return context.Cliente.Where(x => x.estado != -1).ToList();
             }
@@ -63,7 +62,7 @@ namespace ClnRestaurante
 
         public static List<paClienteListar_Result> listarPa(string parametro)
         {
-            using (var context = new LabRestauranteEntities())
+            using (var context = new LabRestauranteMPEntities())
             {
                 return context.paClienteListar(parametro).ToList();
             }

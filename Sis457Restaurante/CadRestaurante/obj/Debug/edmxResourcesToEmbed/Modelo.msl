@@ -1,19 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="LabRestauranteMPModelStoreContainer" CdmEntityContainer="LabRestauranteMPEntities">
-    <EntitySetMapping Name="Bebida">
-      <EntityTypeMapping TypeName="LabRestauranteMPModel.Bebida">
-        <MappingFragment StoreEntitySet="Bebida">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="precio" ColumnName="precio" />
-          <ScalarProperty Name="marca" ColumnName="marca" />
-          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
-          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Cliente">
       <EntityTypeMapping TypeName="LabRestauranteMPModel.Cliente">
         <MappingFragment StoreEntitySet="Cliente">
@@ -56,46 +43,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Factura">
-      <EntityTypeMapping TypeName="LabRestauranteMPModel.Factura">
-        <MappingFragment StoreEntitySet="Factura">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
-          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
-          <ScalarProperty Name="idComida" ColumnName="idComida" />
-          <ScalarProperty Name="idBebida" ColumnName="idBebida" />
-          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
-          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Usuario">
-      <EntityTypeMapping TypeName="LabRestauranteMPModel.Usuario">
-        <MappingFragment StoreEntitySet="Usuario">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="usuario1" ColumnName="usuario" />
-          <ScalarProperty Name="clave" ColumnName="clave" />
-          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
-          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
-          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="paBebidaListar" FunctionName="LabRestauranteMPModel.Store.paBebidaListar">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="LabRestauranteMPModel.paBebidaListar_Result">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="precio" ColumnName="precio" />
-          <ScalarProperty Name="marca" ColumnName="marca" />
-          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
-          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="paBebidaListar" FunctionName="LabRestauranteMPModel.Store.paBebidaListar" />
     <FunctionImportMapping FunctionImportName="paClienteListar" FunctionName="LabRestauranteMPModel.Store.paClienteListar">
       <ResultMapping>
         <ComplexTypeMapping TypeName="LabRestauranteMPModel.paClienteListar_Result">
@@ -136,5 +84,73 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="paFacturaListar" FunctionName="LabRestauranteMPModel.Store.paFacturaListar" />
+    <FunctionImportMapping FunctionImportName="paFacturasListar" FunctionName="LabRestauranteMPModel.Store.paFacturasListar" />
+    <EntitySetMapping Name="Bebida">
+      <EntityTypeMapping TypeName="LabRestauranteMPModel.Bebida">
+        <MappingFragment StoreEntitySet="Bebida">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Factura">
+      <EntityTypeMapping TypeName="LabRestauranteMPModel.Factura">
+        <MappingFragment StoreEntitySet="Factura">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="idBebida" ColumnName="idBebida" />
+          <ScalarProperty Name="idComida" ColumnName="idComida" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="LabRestauranteMPModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="paBebidasListar" FunctionName="LabRestauranteMPModel.Store.paBebidasListar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LabRestauranteMPModel.paBebidasListar_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="paFacturarListar" FunctionName="LabRestauranteMPModel.Store.paFacturarListar">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LabRestauranteMPModel.paFacturarListar_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="idComida" ColumnName="idComida" />
+          <ScalarProperty Name="idBebida" ColumnName="idBebida" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

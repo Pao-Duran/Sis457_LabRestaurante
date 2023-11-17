@@ -27,20 +27,20 @@ namespace CadRestaurante
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Bebida> Bebida { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Comida> Comida { get; set; }
         public virtual DbSet<Empleado> Empleado { get; set; }
+        public virtual DbSet<Bebida> Bebida { get; set; }
         public virtual DbSet<Factura> Factura { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
     
-        public virtual ObjectResult<paBebidaListar_Result> paBebidaListar(string parametro)
+        public virtual int paBebidaListar(string parametro)
         {
             var parametroParameter = parametro != null ?
                 new ObjectParameter("parametro", parametro) :
                 new ObjectParameter("parametro", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paBebidaListar_Result>("paBebidaListar", parametroParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("paBebidaListar", parametroParameter);
         }
     
         public virtual ObjectResult<paClienteListar_Result> paClienteListar(string parametro)
@@ -79,13 +79,31 @@ namespace CadRestaurante
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("paFacturaListar", parametroParameter);
         }
     
-        public virtual ObjectResult<paFacturasListar_Result> paFacturasListar(string parametro)
+        public virtual int paFacturasListar(string parametro)
         {
             var parametroParameter = parametro != null ?
                 new ObjectParameter("parametro", parametro) :
                 new ObjectParameter("parametro", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paFacturasListar_Result>("paFacturasListar", parametroParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("paFacturasListar", parametroParameter);
+        }
+    
+        public virtual ObjectResult<paBebidasListar_Result> paBebidasListar(string parametro)
+        {
+            var parametroParameter = parametro != null ?
+                new ObjectParameter("parametro", parametro) :
+                new ObjectParameter("parametro", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paBebidasListar_Result>("paBebidasListar", parametroParameter);
+        }
+    
+        public virtual ObjectResult<paFacturarListar_Result> paFacturarListar(string parametro)
+        {
+            var parametroParameter = parametro != null ?
+                new ObjectParameter("parametro", parametro) :
+                new ObjectParameter("parametro", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paFacturarListar_Result>("paFacturarListar", parametroParameter);
         }
     }
 }

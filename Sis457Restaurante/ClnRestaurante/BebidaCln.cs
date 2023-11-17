@@ -61,11 +61,11 @@ namespace ClnRestaurante
             }
         }
 
-        public static List<paBebidaListar_Result> listarPa(string parametro)
+        public static List<paBebidasListar_Result> listarPa(string parametro)
         {
             using (var context = new LabRestauranteMPEntities())
             {
-                return context.paBebidaListar(parametro).ToList();
+                return context.paBebidasListar(parametro).ToList();
             }
         }
     }

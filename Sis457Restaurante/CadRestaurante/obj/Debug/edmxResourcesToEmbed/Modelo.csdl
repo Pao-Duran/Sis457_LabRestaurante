@@ -1,18 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="LabRestauranteMPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Bebida">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="precio" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-    <Property Name="marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="usuarioRegistro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="estado" Type="Int16" Nullable="false" />
-    <NavigationProperty Name="Factura" Relationship="Self.fk_Factura_Bebida" FromRole="Bebida" ToRole="Factura" />
-  </EntityType>
   <EntityType Name="Cliente">
     <Key>
       <PropertyRef Name="id" />
@@ -25,7 +12,7 @@
     <Property Name="usuarioRegistro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="estado" Type="Int16" Nullable="false" />
-    <NavigationProperty Name="Factura" Relationship="Self.fk_Factura_Cliente" FromRole="Cliente" ToRole="Factura" />
+    <NavigationProperty Name="Factura" Relationship="LabRestauranteMPModel.fk_Factura_Cliente" FromRole="Cliente" ToRole="Factura" />
   </EntityType>
   <EntityType Name="Comida">
     <Key>
@@ -37,7 +24,7 @@
     <Property Name="usuarioRegistro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="estado" Type="Int16" Nullable="false" />
-    <NavigationProperty Name="Factura" Relationship="Self.fk_Factura_Comida" FromRole="Comida" ToRole="Factura" />
+    <NavigationProperty Name="Factura" Relationship="LabRestauranteMPModel.fk_Factura_Comida" FromRole="Comida" ToRole="Factura" />
   </EntityType>
   <EntityType Name="Empleado">
     <Key>
@@ -53,127 +40,14 @@
     <Property Name="usuarioRegistro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="estado" Type="Int16" Nullable="false" />
-    <NavigationProperty Name="Factura" Relationship="Self.fk_Factura_Empleado" FromRole="Empleado" ToRole="Factura" />
-    <NavigationProperty Name="Usuario" Relationship="Self.fk_Usuario_Empleado" FromRole="Empleado" ToRole="Usuario" />
+    <NavigationProperty Name="Factura" Relationship="LabRestauranteMPModel.fk_Factura_Empleado" FromRole="Empleado" ToRole="Factura" />
+    <NavigationProperty Name="Usuario" Relationship="LabRestauranteMPModel.fk_Usuario_Empleado" FromRole="Empleado" ToRole="Usuario" />
   </EntityType>
-  <EntityType Name="Factura">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idCliente" Type="Int32" Nullable="false" />
-    <Property Name="idEmpleado" Type="Int32" Nullable="false" />
-    <Property Name="idComida" Type="Int32" Nullable="false" />
-    <Property Name="idBebida" Type="Int32" Nullable="false" />
-    <Property Name="usuarioRegistro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="estado" Type="Int16" Nullable="false" />
-    <NavigationProperty Name="Bebida" Relationship="Self.fk_Factura_Bebida" FromRole="Factura" ToRole="Bebida" />
-    <NavigationProperty Name="Cliente" Relationship="Self.fk_Factura_Cliente" FromRole="Factura" ToRole="Cliente" />
-    <NavigationProperty Name="Comida" Relationship="Self.fk_Factura_Comida" FromRole="Factura" ToRole="Comida" />
-    <NavigationProperty Name="Empleado" Relationship="Self.fk_Factura_Empleado" FromRole="Factura" ToRole="Empleado" />
-  </EntityType>
-  <EntityType Name="Usuario">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="usuario1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="clave" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="idEmpleado" Type="Int32" Nullable="false" />
-    <Property Name="usuarioRegistro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="estado" Type="Int16" Nullable="false" />
-    <NavigationProperty Name="Empleado" Relationship="Self.fk_Usuario_Empleado" FromRole="Usuario" ToRole="Empleado" />
-  </EntityType>
-  <Association Name="fk_Factura_Bebida">
-    <End Role="Bebida" Type="Self.Bebida" Multiplicity="1" />
-    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Bebida">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Factura">
-        <PropertyRef Name="idBebida" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_Factura_Cliente">
-    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cliente">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Factura">
-        <PropertyRef Name="idCliente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_Factura_Comida">
-    <End Role="Comida" Type="Self.Comida" Multiplicity="1" />
-    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Comida">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Factura">
-        <PropertyRef Name="idComida" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_Factura_Empleado">
-    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
-    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Empleado">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Factura">
-        <PropertyRef Name="idEmpleado" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_Usuario_Empleado">
-    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Empleado">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Usuario">
-        <PropertyRef Name="idEmpleado" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="LabRestauranteMPEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Bebida" EntityType="Self.Bebida" />
     <EntitySet Name="Cliente" EntityType="Self.Cliente" />
     <EntitySet Name="Comida" EntityType="Self.Comida" />
     <EntitySet Name="Empleado" EntityType="Self.Empleado" />
-    <EntitySet Name="Factura" EntityType="Self.Factura" />
-    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
-    <AssociationSet Name="fk_Factura_Bebida" Association="Self.fk_Factura_Bebida">
-      <End Role="Bebida" EntitySet="Bebida" />
-      <End Role="Factura" EntitySet="Factura" />
-    </AssociationSet>
-    <AssociationSet Name="fk_Factura_Cliente" Association="Self.fk_Factura_Cliente">
-      <End Role="Cliente" EntitySet="Cliente" />
-      <End Role="Factura" EntitySet="Factura" />
-    </AssociationSet>
-    <AssociationSet Name="fk_Factura_Comida" Association="Self.fk_Factura_Comida">
-      <End Role="Comida" EntitySet="Comida" />
-      <End Role="Factura" EntitySet="Factura" />
-    </AssociationSet>
-    <AssociationSet Name="fk_Factura_Empleado" Association="Self.fk_Factura_Empleado">
-      <End Role="Empleado" EntitySet="Empleado" />
-      <End Role="Factura" EntitySet="Factura" />
-    </AssociationSet>
-    <AssociationSet Name="fk_Usuario_Empleado" Association="Self.fk_Usuario_Empleado">
-      <End Role="Empleado" EntitySet="Empleado" />
-      <End Role="Usuario" EntitySet="Usuario" />
-    </AssociationSet>
-    <FunctionImport Name="paBebidaListar" ReturnType="Collection(LabRestauranteMPModel.paBebidaListar_Result)">
+    <FunctionImport Name="paBebidaListar">
       <Parameter Name="parametro" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="paClienteListar" ReturnType="Collection(LabRestauranteMPModel.paClienteListar_Result)">
@@ -188,16 +62,39 @@
     <FunctionImport Name="paFacturaListar">
       <Parameter Name="parametro" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="paFacturasListar">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Bebida" EntityType="LabRestauranteMPModel.Bebida" />
+    <EntitySet Name="Factura" EntityType="LabRestauranteMPModel.Factura" />
+    <EntitySet Name="Usuario" EntityType="LabRestauranteMPModel.Usuario" />
+    <AssociationSet Name="fk_Factura_Bebida" Association="LabRestauranteMPModel.fk_Factura_Bebida">
+      <End Role="Bebida" EntitySet="Bebida" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Factura_Cliente" Association="LabRestauranteMPModel.fk_Factura_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Factura_Comida" Association="LabRestauranteMPModel.fk_Factura_Comida">
+      <End Role="Comida" EntitySet="Comida" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Factura_Empleado" Association="LabRestauranteMPModel.fk_Factura_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Usuario_Empleado" Association="LabRestauranteMPModel.fk_Usuario_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <FunctionImport Name="paBebidasListar" ReturnType="Collection(LabRestauranteMPModel.paBebidasListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="paFacturarListar" ReturnType="Collection(LabRestauranteMPModel.paFacturarListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
-  <ComplexType Name="paBebidaListar_Result">
-    <Property Type="Int32" Name="id" Nullable="false" />
-    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
-    <Property Type="Decimal" Name="precio" Nullable="false" Precision="18" Scale="0" />
-    <Property Type="String" Name="marca" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="20" />
-    <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
-    <Property Type="Int16" Name="estado" Nullable="false" />
-  </ComplexType>
   <ComplexType Name="paClienteListar_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
     <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
@@ -221,6 +118,128 @@
     <Property Type="String" Name="telefono" Nullable="false" MaxLength="8" />
     <Property Type="String" Name="direccion" Nullable="false" MaxLength="30" />
     <Property Type="String" Name="cargo" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="20" />
+    <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+    <Property Type="Int16" Name="estado" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Bebida">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="precio" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioRegistro" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="estado" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Factura" Relationship="LabRestauranteMPModel.fk_Factura_Bebida" FromRole="Bebida" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="idComida" Type="Int32" Nullable="false" />
+    <Property Name="idBebida" Type="Int32" Nullable="false" />
+    <Property Name="usuarioRegistro" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="estado" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Bebida" Relationship="LabRestauranteMPModel.fk_Factura_Bebida" FromRole="Factura" ToRole="Bebida" />
+    <NavigationProperty Name="Cliente" Relationship="LabRestauranteMPModel.fk_Factura_Cliente" FromRole="Factura" ToRole="Cliente" />
+    <NavigationProperty Name="Comida" Relationship="LabRestauranteMPModel.fk_Factura_Comida" FromRole="Factura" ToRole="Comida" />
+    <NavigationProperty Name="Empleado" Relationship="LabRestauranteMPModel.fk_Factura_Empleado" FromRole="Factura" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario1" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="clave" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="usuarioRegistro" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="estado" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Empleado" Relationship="LabRestauranteMPModel.fk_Usuario_Empleado" FromRole="Usuario" ToRole="Empleado" />
+  </EntityType>
+  <Association Name="fk_Factura_Bebida">
+    <End Type="LabRestauranteMPModel.Bebida" Role="Bebida" Multiplicity="1" />
+    <End Type="LabRestauranteMPModel.Factura" Role="Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bebida">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="idBebida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Factura_Cliente">
+    <End Type="LabRestauranteMPModel.Cliente" Role="Cliente" Multiplicity="1" />
+    <End Type="LabRestauranteMPModel.Factura" Role="Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Factura_Comida">
+    <End Type="LabRestauranteMPModel.Comida" Role="Comida" Multiplicity="1" />
+    <End Type="LabRestauranteMPModel.Factura" Role="Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comida">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="idComida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Factura_Empleado">
+    <End Type="LabRestauranteMPModel.Empleado" Role="Empleado" Multiplicity="1" />
+    <End Type="LabRestauranteMPModel.Factura" Role="Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="idEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Usuario_Empleado">
+    <End Type="LabRestauranteMPModel.Empleado" Role="Empleado" Multiplicity="1" />
+    <End Type="LabRestauranteMPModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="paBebidasListar_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="precio" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="marca" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="20" />
+    <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+    <Property Type="Int16" Name="estado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="paFacturarListar_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="idCliente" Nullable="false" />
+    <Property Type="Int32" Name="idEmpleado" Nullable="false" />
+    <Property Type="Int32" Name="idComida" Nullable="false" />
+    <Property Type="Int32" Name="idBebida" Nullable="false" />
     <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="20" />
     <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
     <Property Type="Int16" Name="estado" Nullable="false" />
