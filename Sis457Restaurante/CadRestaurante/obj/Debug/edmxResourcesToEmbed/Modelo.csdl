@@ -94,6 +94,9 @@
     <FunctionImport Name="paFacturarListar" ReturnType="Collection(LabRestauranteMPModel.paFacturarListar_Result)">
       <Parameter Name="parametro" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="paUsuarioListar" ReturnType="Collection(LabRestauranteMPModel.paUsuarioListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="paClienteListar_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
@@ -240,6 +243,15 @@
     <Property Type="Int32" Name="idEmpleado" Nullable="false" />
     <Property Type="Int32" Name="idComida" Nullable="false" />
     <Property Type="Int32" Name="idBebida" Nullable="false" />
+    <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="20" />
+    <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+    <Property Type="Int16" Name="estado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="paUsuarioListar_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="usuario" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="clave" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="idEmpleado" Nullable="false" />
     <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="20" />
     <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
     <Property Type="Int16" Name="estado" Nullable="false" />

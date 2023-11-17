@@ -20,3 +20,13 @@ E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.cs
 E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.exe
 E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.pdb
 E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.frmCliente.resources
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\bin\Debug\C1.Win.4.5.2.dll
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\bin\Debug\C1.Win.C1Ribbon.4.5.2.dll
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\bin\Debug\C1.Win.4.5.2.xml
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\bin\Debug\C1.Win.C1Ribbon.4.5.2.xml
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.frmPrincipal.resources
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.exe.licenses
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.FrmComida.resources
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.FrmLogin.resources
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.FrmMenu.resources
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.FrmUsuario.resources

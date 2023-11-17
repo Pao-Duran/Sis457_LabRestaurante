@@ -117,9 +117,9 @@ ALTER TABLE Bebida ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: eliminacion lo
 --USUARIO
 CREATE PROC paUsuarioListar @parametro VARCHAR(50)
 AS
-  SELECT id,nombre,clave,idEmpleado,usuarioRegistro,fechaRegistro, estado
+  SELECT id,usuario,clave,idEmpleado,usuarioRegistro,fechaRegistro, estado
   FROM Usuario
-  WHERE estado <> -1 AND nombre LIKE '%'+ REPLACE (@parametro,' ','%')+'%';
+  WHERE estado <> -1 AND usuario LIKE '%'+ REPLACE (@parametro,' ','%')+'%';
 
 
   SELECT *FROM Usuario

@@ -113,6 +113,86 @@ namespace CpRestaurante.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cliente_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cliente-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cubiertos_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cubiertos-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_factura_32__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-factura-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_insignia_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-insignia-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_mostrador_de_facturación_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-mostrador-de-facturación-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_plato_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-plato-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_restaurante_32__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-restaurante-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_usuario_masculino_en_círculo_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-usuario-masculino-en-círculo-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_verificar_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-verificar-32", resourceCulture);
@@ -126,6 +206,16 @@ namespace CpRestaurante.Properties {
         internal static System.Drawing.Bitmap icons8_verificar_321 {
             get {
                 object obj = ResourceManager.GetObject("icons8-verificar-321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_verificar_322 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-verificar-322", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

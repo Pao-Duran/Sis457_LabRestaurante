@@ -16,5 +16,15 @@ namespace CpRestaurante
         {
             InitializeComponent();
         }
+
+        private void ribbonButton2_Click(object sender, EventArgs e)
+        {
+            new frmCliente().ShowDialog();
+        }
+
+        private void btnEmpleado_Click(object sender, EventArgs e)
+        {
+            new FrmEmpleado().ShowDialog();
+        }
     }
 }

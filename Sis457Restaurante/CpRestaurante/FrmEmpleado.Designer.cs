@@ -35,6 +35,7 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvLista = new System.Windows.Forms.DataGridView();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtCargo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -46,22 +47,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.pnlAcciones = new System.Windows.Forms.Panel();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.gbxLista = new System.Windows.Forms.GroupBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.erpNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpPrimerApellido = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpSegundoApellido = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpTelefono = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpDireccion = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpCargo = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.gbxDatos.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
@@ -99,7 +99,7 @@
             this.lblTitulo.Location = new System.Drawing.Point(11, 9);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(761, 39);
+            this.lblTitulo.Size = new System.Drawing.Size(682, 39);
             this.lblTitulo.TabIndex = 8;
             this.lblTitulo.Text = "Empleados";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -144,6 +144,13 @@
             this.gbxDatos.TabIndex = 14;
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Datos del Empleado";
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(526, 14);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(160, 26);
+            this.txtTelefono.TabIndex = 29;
             // 
             // txtCargo
             // 
@@ -240,6 +247,54 @@
             this.lblCodigo.TabIndex = 8;
             this.lblCodigo.Text = "Nombre:";
             // 
+            // pnlAcciones
+            // 
+            this.pnlAcciones.Controls.Add(this.btnCerrar);
+            this.pnlAcciones.Controls.Add(this.btnEliminar);
+            this.pnlAcciones.Controls.Add(this.btnEditar);
+            this.pnlAcciones.Controls.Add(this.btnNuevo);
+            this.pnlAcciones.Location = new System.Drawing.Point(7, 332);
+            this.pnlAcciones.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlAcciones.Name = "pnlAcciones";
+            this.pnlAcciones.Size = new System.Drawing.Size(686, 66);
+            this.pnlAcciones.TabIndex = 13;
+            // 
+            // gbxLista
+            // 
+            this.gbxLista.Controls.Add(this.dgvLista);
+            this.gbxLista.Location = new System.Drawing.Point(7, 104);
+            this.gbxLista.Margin = new System.Windows.Forms.Padding(4);
+            this.gbxLista.Name = "gbxLista";
+            this.gbxLista.Padding = new System.Windows.Forms.Padding(4);
+            this.gbxLista.Size = new System.Drawing.Size(705, 220);
+            this.gbxLista.TabIndex = 12;
+            this.gbxLista.TabStop = false;
+            this.gbxLista.Text = "Lista de Empleados";
+            // 
+            // erpNombre
+            // 
+            this.erpNombre.ContainerControl = this;
+            // 
+            // erpPrimerApellido
+            // 
+            this.erpPrimerApellido.ContainerControl = this;
+            // 
+            // erpSegundoApellido
+            // 
+            this.erpSegundoApellido.ContainerControl = this;
+            // 
+            // erpTelefono
+            // 
+            this.erpTelefono.ContainerControl = this;
+            // 
+            // erpDireccion
+            // 
+            this.erpDireccion.ContainerControl = this;
+            // 
+            // erpCargo
+            // 
+            this.erpCargo.ContainerControl = this;
+            // 
             // btnCancelar
             // 
             this.btnCancelar.Image = global::CpRestaurante.Properties.Resources.close;
@@ -267,18 +322,6 @@
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // pnlAcciones
-            // 
-            this.pnlAcciones.Controls.Add(this.btnCerrar);
-            this.pnlAcciones.Controls.Add(this.btnEliminar);
-            this.pnlAcciones.Controls.Add(this.btnEditar);
-            this.pnlAcciones.Controls.Add(this.btnNuevo);
-            this.pnlAcciones.Location = new System.Drawing.Point(7, 332);
-            this.pnlAcciones.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlAcciones.Name = "pnlAcciones";
-            this.pnlAcciones.Size = new System.Drawing.Size(686, 66);
-            this.pnlAcciones.TabIndex = 13;
             // 
             // btnCerrar
             // 
@@ -338,18 +381,6 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // gbxLista
-            // 
-            this.gbxLista.Controls.Add(this.dgvLista);
-            this.gbxLista.Location = new System.Drawing.Point(7, 104);
-            this.gbxLista.Margin = new System.Windows.Forms.Padding(4);
-            this.gbxLista.Name = "gbxLista";
-            this.gbxLista.Padding = new System.Windows.Forms.Padding(4);
-            this.gbxLista.Size = new System.Drawing.Size(705, 220);
-            this.gbxLista.TabIndex = 12;
-            this.gbxLista.TabStop = false;
-            this.gbxLista.Text = "Lista de Empleados";
-            // 
             // btnBuscar
             // 
             this.btnBuscar.Image = global::CpRestaurante.Properties.Resources.search;
@@ -363,37 +394,6 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // erpNombre
-            // 
-            this.erpNombre.ContainerControl = this;
-            // 
-            // erpPrimerApellido
-            // 
-            this.erpPrimerApellido.ContainerControl = this;
-            // 
-            // erpSegundoApellido
-            // 
-            this.erpSegundoApellido.ContainerControl = this;
-            // 
-            // erpTelefono
-            // 
-            this.erpTelefono.ContainerControl = this;
-            // 
-            // erpDireccion
-            // 
-            this.erpDireccion.ContainerControl = this;
-            // 
-            // erpCargo
-            // 
-            this.erpCargo.ContainerControl = this;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(526, 14);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(160, 26);
-            this.txtTelefono.TabIndex = 29;
             // 
             // FrmEmpleado
             // 
