@@ -101,8 +101,11 @@
     <Compile Include="paUsuarioListar_Result.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="paUsuariosListar_Result.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Usuario.cs">
+    <Compile Include="Usuarios.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
   </ItemGroup>

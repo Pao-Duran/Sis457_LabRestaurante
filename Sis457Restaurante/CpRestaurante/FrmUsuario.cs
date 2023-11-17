@@ -60,9 +60,9 @@ namespace CpRestaurante
             Size = new Size(747, 571);
             int index = dgvLista.CurrentCell.RowIndex;
             int id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
-            var usuario = UsuarioCln.get(id);
-            txtUsuario.Text = usuario.usuario1;
-            txtClave.Text = usuario.clave;
+            var usuarios = UsuarioCln.get(id);
+            txtUsuario.Text = usuarios.usuario;
+            txtClave.Text = usuarios.clave;
 
         }
 
@@ -86,25 +86,25 @@ namespace CpRestaurante
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            var usuario = new Usuario();
-            usuario.usuario1 = txtUsuario.Text.Trim();
-            usuario.clave = Util.Encrypt(txtClave.Text.Trim());
-            usuario.usuarioRegistro = "LabRestaurante";
+            var usuarios = new Usuarios();
+            usuarios.usuario = txtUsuario.Text.Trim();
+            usuarios.clave = Util.Encrypt(txtClave.Text.Trim());
+            usuarios.usuarioRegistro = "LabRestaurante";
 
 
 
             if (esNuevo)
             {
-                usuario.fechaRegistro = DateTime.Now;
-                usuario.estado = 1;
-                usuario.idEmpleado = Convert.ToInt32(cbxNombre.SelectedValue);
-                UsuarioCln.insertar(usuario);
+                usuarios.fechaRegistro = DateTime.Now;
+                usuarios.estado = 1;
+                usuarios.idEmpleado = Convert.ToInt32(cbxNombre.SelectedValue);
+                UsuarioCln.insertar(usuarios);
             }
             else
             {
-                int index = dgvLista.CurrentCell.RowIndex;
-                usuario.id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
-                UsuarioCln.actualizar(usuario);
+                var index = dgvLista.CurrentCell.RowIndex;
+                usuarios.id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
+                UsuarioCln.actualizar(usuarios);
             }
             listar();
             btnCancelar.PerformClick();
@@ -123,8 +123,8 @@ namespace CpRestaurante
         {
             int index = dgvLista.CurrentCell.RowIndex;
             int id = Convert.ToInt32(dgvLista.Rows[index].Cells["id"].Value);
-            string usuario = dgvLista.Rows[index].Cells["usuario"].Value.ToString();
-            DialogResult dialog = MessageBox.Show($"¿Está seguro que desea dar de baja el usuario {usuario}?",
+            string usuarios = dgvLista.Rows[index].Cells["usuarios"].Value.ToString();
+            DialogResult dialog = MessageBox.Show($"¿Está seguro que desea dar de baja el usuario {usuarios}?",
                 "::: Minerva - Mensaje :::", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (dialog == DialogResult.OK)
             {

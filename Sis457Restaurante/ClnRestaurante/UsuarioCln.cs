@@ -10,23 +10,24 @@ namespace ClnRestaurante
 {
     public class UsuarioCln
     {
-        public static int insertar(Usuario usuario)
+        public static int insertar(Usuarios usuarios)
         {
             using (var context = new LabRestauranteMPEntities())
             {
-                context.Usuario.Add(usuario);
+                context.Usuarios.Add(usuarios);
                 context.SaveChanges();
-                return usuario.id;
+                return usuarios.id;
             }
         }
 
-        public static int actualizar(Usuario usuario)
+        public static int actualizar(Usuarios usuarios)
         {
             using (var context = new LabRestauranteMPEntities())
             {
-                var existente = context.Usuario.Find(usuario.id);
-                existente.usuario1 = usuario.usuario1.Trim();
-                existente.usuarioRegistro = usuario.usuarioRegistro;
+                var existente = context.Usuarios.Find(usuarios.id);
+                existente.usuario = usuarios.usuario.Trim();
+                existente.clave = usuarios.clave;
+                existente.usuarioRegistro = usuarios.usuarioRegistro;
                 return context.SaveChanges();
             }
         }
@@ -34,41 +35,41 @@ namespace ClnRestaurante
         {
             using (var context = new LabRestauranteMPEntities())
             {
-                var existente = context.Usuario.Find(id);
+                var existente = context.Usuarios.Find(id);
                 existente.estado = -1;
                 existente.usuarioRegistro = usuario;
                 return context.SaveChanges();
             }
         }
 
-        public static Usuario get(int id)
+        public static Usuarios get(int id)
         {
             using (var context = new LabRestauranteMPEntities())
             {
-                return context.Usuario.Find(id);
+                return context.Usuarios.Find(id);
             }
         }
 
-        public static List<Usuario> listar()
+        public static List<Usuarios> listar()
         {
             using(var context = new LabRestauranteMPEntities())
             {
-                return context.Usuario.Where(x => x.estado !=-1).ToList();
+                return context.Usuarios.Where(x => x.estado !=-1).ToList();
             }
         }
-        public static List<paUsuarioListar_Result> listarPa(string parametro)
+        public static List<paUsuariosListar_Result> listarPa(string parametro)
         {
             using (var contexto = new LabRestauranteMPEntities())
             {
-                return contexto.paUsuarioListar(parametro).ToList();
+                return contexto.paUsuariosListar(parametro).ToList();
             }
         }
-        public static Usuario validar (string usuario, string clave)
+        public static Usuarios validar (string usuario, string clave)
         {
             using (var context = new LabRestauranteMPEntities())
             {
-                return context.Usuario
-                    .Where(x => x.usuario1 == usuario && x.clave == clave)
+                return context.Usuarios
+                    .Where(x => x.usuario == usuario && x.clave == clave)
                     .FirstOrDefault();
             }
         }

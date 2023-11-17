@@ -41,7 +41,7 @@
     <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="estado" Type="Int16" Nullable="false" />
     <NavigationProperty Name="Factura" Relationship="LabRestauranteMPModel.fk_Factura_Empleado" FromRole="Empleado" ToRole="Factura" />
-    <NavigationProperty Name="Usuario" Relationship="LabRestauranteMPModel.fk_Usuario_Empleado" FromRole="Empleado" ToRole="Usuario" />
+    <NavigationProperty Name="Usuarios" Relationship="LabRestauranteMPModel.fk_Usuarios_Empleado" FromRole="Empleado" ToRole="Usuarios" />
   </EntityType>
   <EntityContainer Name="LabRestauranteMPEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Cliente" EntityType="Self.Cliente" />
@@ -67,7 +67,6 @@
     </FunctionImport>
     <EntitySet Name="Bebida" EntityType="LabRestauranteMPModel.Bebida" />
     <EntitySet Name="Factura" EntityType="LabRestauranteMPModel.Factura" />
-    <EntitySet Name="Usuario" EntityType="LabRestauranteMPModel.Usuario" />
     <AssociationSet Name="fk_Factura_Bebida" Association="LabRestauranteMPModel.fk_Factura_Bebida">
       <End Role="Bebida" EntitySet="Bebida" />
       <End Role="Factura" EntitySet="Factura" />
@@ -84,10 +83,6 @@
       <End Role="Empleado" EntitySet="Empleado" />
       <End Role="Factura" EntitySet="Factura" />
     </AssociationSet>
-    <AssociationSet Name="fk_Usuario_Empleado" Association="LabRestauranteMPModel.fk_Usuario_Empleado">
-      <End Role="Empleado" EntitySet="Empleado" />
-      <End Role="Usuario" EntitySet="Usuario" />
-    </AssociationSet>
     <FunctionImport Name="paBebidasListar" ReturnType="Collection(LabRestauranteMPModel.paBebidasListar_Result)">
       <Parameter Name="parametro" Mode="In" Type="String" />
     </FunctionImport>
@@ -95,6 +90,14 @@
       <Parameter Name="parametro" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="paUsuarioListar" ReturnType="Collection(LabRestauranteMPModel.paUsuarioListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Usuarios" EntityType="LabRestauranteMPModel.Usuarios" />
+    <AssociationSet Name="fk_Usuarios_Empleado" Association="LabRestauranteMPModel.fk_Usuarios_Empleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <FunctionImport Name="paUsuariosListar" ReturnType="Collection(LabRestauranteMPModel.paUsuariosListar_Result)">
       <Parameter Name="parametro" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
@@ -155,19 +158,6 @@
     <NavigationProperty Name="Comida" Relationship="LabRestauranteMPModel.fk_Factura_Comida" FromRole="Factura" ToRole="Comida" />
     <NavigationProperty Name="Empleado" Relationship="LabRestauranteMPModel.fk_Factura_Empleado" FromRole="Factura" ToRole="Empleado" />
   </EntityType>
-  <EntityType Name="Usuario">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="usuario1" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="clave" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="idEmpleado" Type="Int32" Nullable="false" />
-    <Property Name="usuarioRegistro" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="estado" Type="Int16" Nullable="false" />
-    <NavigationProperty Name="Empleado" Relationship="LabRestauranteMPModel.fk_Usuario_Empleado" FromRole="Usuario" ToRole="Empleado" />
-  </EntityType>
   <Association Name="fk_Factura_Bebida">
     <End Type="LabRestauranteMPModel.Bebida" Role="Bebida" Multiplicity="1" />
     <End Type="LabRestauranteMPModel.Factura" Role="Factura" Multiplicity="*" />
@@ -216,18 +206,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_Usuario_Empleado">
-    <End Type="LabRestauranteMPModel.Empleado" Role="Empleado" Multiplicity="1" />
-    <End Type="LabRestauranteMPModel.Usuario" Role="Usuario" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Empleado">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Usuario">
-        <PropertyRef Name="idEmpleado" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <ComplexType Name="paBebidasListar_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
     <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
@@ -252,6 +230,41 @@
     <Property Type="String" Name="usuario" Nullable="false" MaxLength="30" />
     <Property Type="String" Name="clave" Nullable="false" MaxLength="100" />
     <Property Type="Int32" Name="idEmpleado" Nullable="false" />
+    <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="20" />
+    <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+    <Property Type="Int16" Name="estado" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="clave" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="usuarioRegistro" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="estado" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Empleado" Relationship="LabRestauranteMPModel.fk_Usuarios_Empleado" FromRole="Usuarios" ToRole="Empleado" />
+  </EntityType>
+  <Association Name="fk_Usuarios_Empleado">
+    <End Type="LabRestauranteMPModel.Empleado" Role="Empleado" Multiplicity="1" />
+    <End Type="LabRestauranteMPModel.Usuarios" Role="Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="idEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="paUsuariosListar_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="idEmpleado" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="usuario" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="clave" Nullable="false" MaxLength="100" />
     <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="20" />
     <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
     <Property Type="Int16" Name="estado" Nullable="false" />

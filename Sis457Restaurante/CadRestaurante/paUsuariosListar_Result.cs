@@ -10,18 +10,16 @@
 namespace CadRestaurante
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Usuario
+    public partial class paUsuariosListar_Result
     {
         public int id { get; set; }
-        public string usuario1 { get; set; }
-        public string clave { get; set; }
         public int idEmpleado { get; set; }
+        public string nombre { get; set; }
+        public string usuario { get; set; }
+        public string clave { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }
-    
-        public virtual Empleado Empleado { get; set; }
     }
 }

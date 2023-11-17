@@ -13,7 +13,7 @@ namespace CpRestaurante
 {
     public class Util
     {
-        public static Usuario usuario;
+        public static Usuarios usuario;
         static bool notPaste = false;
         public static string Encrypt(string clearText)
         {

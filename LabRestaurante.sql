@@ -27,13 +27,13 @@ DROP TABLE Bebida;
 
 --CREACION DE TABLAS 
 
-CREATE TABLE Usuario (
+CREATE TABLE Usuarios (
   id INT PRIMARY KEY IDENTITY (1,1),
   usuario VARCHAR(30) NOT NULL,
   clave VARCHAR(100) NOT NULL,
   idEmpleado INT NOT NULL,
 
-  CONSTRAINT fk_Usuario_Empleado FOREIGN KEY(idEmpleado) REFERENCES Empleado(id)
+  CONSTRAINT fk_Usuarios_Empleado FOREIGN KEY(idEmpleado) REFERENCES Empleado(id)
 
 );
 
@@ -88,9 +88,9 @@ precio DECIMAL NOT NULL,
 marca VARCHAR(50)
 );
 
-ALTER TABLE Usuario  ADD usuarioRegistro VARCHAR (20) NOT NULL DEFAULT SUSER_NAME();
-ALTER TABLE Usuario ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
-ALTER TABLE Usuario ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: eliminacion logica, 0: inactivo, 1: activo
+ALTER TABLE Usuarios  ADD usuarioRegistro VARCHAR (20) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Usuarios ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Usuarios ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: eliminacion logica, 0: inactivo, 1: activo
 
 
 ALTER TABLE Cliente  ADD usuarioRegistro VARCHAR (20) NOT NULL DEFAULT SUSER_NAME();
@@ -115,14 +115,16 @@ ALTER TABLE Bebida ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
 ALTER TABLE Bebida ADD estado SMALLINT NOT NULL DEFAULT 1; -- -1: eliminacion logica, 0: inactivo, 1: activo
 
 --USUARIO
-CREATE PROC paUsuarioListar @parametro VARCHAR(50)
+CREATE PROC paUsuariosListar @parametro VARCHAR(50)
 AS
-  SELECT id,usuario,clave,idEmpleado,usuarioRegistro,fechaRegistro, estado
-  FROM Usuario
-  WHERE estado <> -1 AND usuario LIKE '%'+ REPLACE (@parametro,' ','%')+'%';
+  SELECT us.id,idEmpleado,em.nombre,us.usuario,us.clave,us.usuarioRegistro,us.fechaRegistro,us.estado
+  FROM Usuario us INNER JOIN Empleado em ON us.id = em.id
+  WHERE us.estado <> -1 AND em.nombre LIKE '%'+ REPLACE (@parametro,' ','%')+'%';
 
 
   SELECT *FROM Usuario
+
+  
 
 --CLIENTES
 CREATE PROC paClienteListar @parametro Varchar(50)

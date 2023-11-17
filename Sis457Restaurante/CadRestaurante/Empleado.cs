@@ -18,7 +18,7 @@ namespace CadRestaurante
         public Empleado()
         {
             this.Factura = new HashSet<Factura>();
-            this.Usuario = new HashSet<Usuario>();
+            this.Usuarios = new HashSet<Usuarios>();
         }
     
         public int id { get; set; }
@@ -35,6 +35,6 @@ namespace CadRestaurante
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Factura { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuario> Usuario { get; set; }
+        public virtual ICollection<Usuarios> Usuarios { get; set; }
     }
 }

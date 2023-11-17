@@ -64,7 +64,7 @@
     <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
     <Property Name="estado" Type="smallint" Nullable="false" />
   </EntityType>
-  <EntityType Name="Usuario">
+  <EntityType Name="Usuarios">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -124,14 +124,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_Usuario_Empleado">
+  <Association Name="fk_Usuarios_Empleado">
     <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Empleado">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="Usuario">
+      <Dependent Role="Usuarios">
         <PropertyRef Name="idEmpleado" />
       </Dependent>
     </ReferentialConstraint>
@@ -163,13 +163,16 @@
   <Function Name="paUsuarioListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="parametro" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="paUsuariosListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="parametro" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="LabRestauranteMPModelStoreContainer">
     <EntitySet Name="Bebida" EntityType="Self.Bebida" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Comida" EntityType="Self.Comida" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="fk_Factura_Bebida" Association="Self.fk_Factura_Bebida">
       <End Role="Bebida" EntitySet="Bebida" />
       <End Role="Factura" EntitySet="Factura" />
@@ -186,9 +189,9 @@
       <End Role="Empleado" EntitySet="Empleado" />
       <End Role="Factura" EntitySet="Factura" />
     </AssociationSet>
-    <AssociationSet Name="fk_Usuario_Empleado" Association="Self.fk_Usuario_Empleado">
+    <AssociationSet Name="fk_Usuarios_Empleado" Association="Self.fk_Usuarios_Empleado">
       <End Role="Empleado" EntitySet="Empleado" />
-      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -32,7 +32,7 @@ namespace CadRestaurante
         public virtual DbSet<Empleado> Empleado { get; set; }
         public virtual DbSet<Bebida> Bebida { get; set; }
         public virtual DbSet<Factura> Factura { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
     
         public virtual int paBebidaListar(string parametro)
         {
@@ -113,6 +113,15 @@ namespace CadRestaurante
                 new ObjectParameter("parametro", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paUsuarioListar_Result>("paUsuarioListar", parametroParameter);
+        }
+    
+        public virtual ObjectResult<paUsuariosListar_Result> paUsuariosListar(string parametro)
+        {
+            var parametroParameter = parametro != null ?
+                new ObjectParameter("parametro", parametro) :
+                new ObjectParameter("parametro", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<paUsuariosListar_Result>("paUsuariosListar", parametroParameter);
         }
     }
 }
