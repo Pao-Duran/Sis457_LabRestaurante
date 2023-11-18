@@ -17,14 +17,23 @@ namespace CpRestaurante
             InitializeComponent();
         }
 
-        private void ribbonButton2_Click(object sender, EventArgs e)
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new FrmMenu().ShowDialog();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
         {
             new frmCliente().ShowDialog();
         }
 
-        private void btnEmpleado_Click(object sender, EventArgs e)
+        private void btnEmpleado_Click_1(object sender, EventArgs e)
         {
             new FrmEmpleado().ShowDialog();
         }
     }
 }
+

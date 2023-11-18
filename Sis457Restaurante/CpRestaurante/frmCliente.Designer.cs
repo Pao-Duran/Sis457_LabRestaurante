@@ -43,20 +43,21 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.pnlAcciones = new System.Windows.Forms.Panel();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.gbxLista = new System.Windows.Forms.GroupBox();
             this.dgvLista = new System.Windows.Forms.DataGridView();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.erpNombre = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpPrimerApellido = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpSegundoApellido = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpCedulaIdentidad = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.gbxDatos.SuspendLayout();
             this.pnlAcciones.SuspendLayout();
             this.gbxLista.SuspendLayout();
@@ -101,7 +102,7 @@
             // txtParametro
             // 
             this.txtParametro.Location = new System.Drawing.Point(25, 77);
-            this.txtParametro.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtParametro.Margin = new System.Windows.Forms.Padding(5);
             this.txtParametro.Name = "txtParametro";
             this.txtParametro.Size = new System.Drawing.Size(592, 26);
             this.txtParametro.TabIndex = 19;
@@ -131,9 +132,9 @@
             this.gbxDatos.Controls.Add(this.btnCancelar);
             this.gbxDatos.Controls.Add(this.btnGuardar);
             this.gbxDatos.Location = new System.Drawing.Point(13, 486);
-            this.gbxDatos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gbxDatos.Margin = new System.Windows.Forms.Padding(5);
             this.gbxDatos.Name = "gbxDatos";
-            this.gbxDatos.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gbxDatos.Padding = new System.Windows.Forms.Padding(5);
             this.gbxDatos.Size = new System.Drawing.Size(751, 189);
             this.gbxDatos.TabIndex = 24;
             this.gbxDatos.TabStop = false;
@@ -142,7 +143,7 @@
             // txtCedulaIdentidad
             // 
             this.txtCedulaIdentidad.Location = new System.Drawing.Point(156, 142);
-            this.txtCedulaIdentidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCedulaIdentidad.Margin = new System.Windows.Forms.Padding(4);
             this.txtCedulaIdentidad.Name = "txtCedulaIdentidad";
             this.txtCedulaIdentidad.Size = new System.Drawing.Size(212, 26);
             this.txtCedulaIdentidad.TabIndex = 29;
@@ -160,7 +161,7 @@
             // txtSegundoApellido
             // 
             this.txtSegundoApellido.Location = new System.Drawing.Point(156, 102);
-            this.txtSegundoApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSegundoApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtSegundoApellido.Name = "txtSegundoApellido";
             this.txtSegundoApellido.Size = new System.Drawing.Size(212, 26);
             this.txtSegundoApellido.TabIndex = 24;
@@ -169,7 +170,7 @@
             // txtPrimerApellido
             // 
             this.txtPrimerApellido.Location = new System.Drawing.Point(156, 68);
-            this.txtPrimerApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrimerApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrimerApellido.Name = "txtPrimerApellido";
             this.txtPrimerApellido.Size = new System.Drawing.Size(212, 26);
             this.txtPrimerApellido.TabIndex = 23;
@@ -177,7 +178,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(156, 33);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(212, 26);
             this.txtNombre.TabIndex = 22;
@@ -212,111 +213,26 @@
             this.lblCodigo.TabIndex = 8;
             this.lblCodigo.Text = "Nombre:";
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Image = global::CpRestaurante.Properties.Resources.close;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(639, 120);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(101, 43);
-            this.btnCancelar.TabIndex = 12;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Image = global::CpRestaurante.Properties.Resources.save;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(644, 56);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(97, 40);
-            this.btnGuardar.TabIndex = 11;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
             // pnlAcciones
             // 
+            this.pnlAcciones.Controls.Add(this.button1);
             this.pnlAcciones.Controls.Add(this.btnCerrar);
             this.pnlAcciones.Controls.Add(this.btnEliminar);
             this.pnlAcciones.Controls.Add(this.btnEditar);
             this.pnlAcciones.Controls.Add(this.btnNuevo);
             this.pnlAcciones.Location = new System.Drawing.Point(57, 406);
-            this.pnlAcciones.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pnlAcciones.Margin = new System.Windows.Forms.Padding(5);
             this.pnlAcciones.Name = "pnlAcciones";
             this.pnlAcciones.Size = new System.Drawing.Size(633, 69);
             this.pnlAcciones.TabIndex = 23;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Image = global::CpRestaurante.Properties.Resources.close;
-            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrar.Location = new System.Drawing.Point(492, 14);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(89, 43);
-            this.btnCerrar.TabIndex = 10;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Enabled = false;
-            this.btnEliminar.Image = global::CpRestaurante.Properties.Resources.delete;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(327, 14);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(97, 43);
-            this.btnEliminar.TabIndex = 9;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Enabled = false;
-            this.btnEditar.Image = global::CpRestaurante.Properties.Resources.edit;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(188, 14);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(89, 43);
-            this.btnEditar.TabIndex = 8;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Image = global::CpRestaurante.Properties.Resources.icons8_verificar_32;
-            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(48, 14);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(89, 43);
-            this.btnNuevo.TabIndex = 7;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // gbxLista
             // 
             this.gbxLista.Controls.Add(this.dgvLista);
             this.gbxLista.Location = new System.Drawing.Point(25, 113);
-            this.gbxLista.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gbxLista.Margin = new System.Windows.Forms.Padding(5);
             this.gbxLista.Name = "gbxLista";
-            this.gbxLista.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gbxLista.Padding = new System.Windows.Forms.Padding(5);
             this.gbxLista.Size = new System.Drawing.Size(689, 291);
             this.gbxLista.TabIndex = 22;
             this.gbxLista.TabStop = false;
@@ -337,20 +253,6 @@
             this.dgvLista.Size = new System.Drawing.Size(653, 244);
             this.dgvLista.TabIndex = 0;
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::CpRestaurante.Properties.Resources.search;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(628, 62);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(87, 40);
-            this.btnBuscar.TabIndex = 21;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // erpNombre
             // 
             this.erpNombre.ContainerControl = this;
@@ -367,6 +269,118 @@
             // 
             this.erpCedulaIdentidad.ContainerControl = this;
             // 
+            // button1
+            // 
+            this.button1.Image = global::CpRestaurante.Properties.Resources.icons8_restaurante_32__1_1;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(511, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 38);
+            this.button1.TabIndex = 84;
+            this.button1.Text = "Inicio";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Image = global::CpRestaurante.Properties.Resources.close;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(639, 120);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(101, 43);
+            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Image = global::CpRestaurante.Properties.Resources.save;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(644, 56);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(5);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(97, 40);
+            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Image = global::CpRestaurante.Properties.Resources.close;
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrar.Location = new System.Drawing.Point(378, 12);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(89, 43);
+            this.btnCerrar.TabIndex = 10;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.Image = global::CpRestaurante.Properties.Resources.delete;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(243, 12);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(5);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(97, 43);
+            this.btnEliminar.TabIndex = 9;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Enabled = false;
+            this.btnEditar.Image = global::CpRestaurante.Properties.Resources.edit;
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(126, 12);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(5);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(89, 43);
+            this.btnEditar.TabIndex = 8;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Image = global::CpRestaurante.Properties.Resources.icons8_verificar_32;
+            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevo.Location = new System.Drawing.Point(27, 9);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(5);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(89, 43);
+            this.btnNuevo.TabIndex = 7;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::CpRestaurante.Properties.Resources.search;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(628, 62);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(5);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(87, 40);
+            this.btnBuscar.TabIndex = 21;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -382,7 +396,7 @@
             this.Controls.Add(this.lblBusqueda);
             this.Controls.Add(this.lblTitulo);
             this.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCliente";
@@ -431,5 +445,6 @@
         private System.Windows.Forms.ErrorProvider erpPrimerApellido;
         private System.Windows.Forms.ErrorProvider erpSegundoApellido;
         private System.Windows.Forms.ErrorProvider erpCedulaIdentidad;
+        private System.Windows.Forms.Button button1;
     }
 }

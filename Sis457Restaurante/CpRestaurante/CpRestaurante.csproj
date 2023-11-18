@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAutenticacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAutenticacion.Designer.cs">
+      <DependentUpon>FrmAutenticacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
+    <EmbeddedResource Include="FrmAutenticacion.resx">
+      <DependentUpon>FrmAutenticacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCliente.resx">
       <DependentUpon>frmCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +223,63 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-usuario-masculino-en-círculo-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0a0fc95968ad7a5699b2876fa6528865.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\el-patio-de-michelangelo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ca02fe3b342e97d46c23ec9b4a0078c1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rustic-Restaurant-Tables-300x300.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1-12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chorizos-chuquisaquenos-de-bolivia.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comida-tipica-bolivia.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comida-tradicional-bolivia-receta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CaldoDePollo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fricase-boliviano.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lomo-montado-a-la-chorrillana.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cocacola-logo.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-fanta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-valle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-tampico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-valle1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\429077-menu-de-restaurante-sem-costura-de-fundo-vetor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-restaurante-32 %281%291.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

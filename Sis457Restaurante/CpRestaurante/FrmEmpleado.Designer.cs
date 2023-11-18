@@ -55,6 +55,7 @@
             this.erpTelefono = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpDireccion = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpCargo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -147,7 +148,7 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(526, 14);
+            this.txtTelefono.Location = new System.Drawing.Point(141, 155);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(160, 26);
             this.txtTelefono.TabIndex = 29;
@@ -162,7 +163,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(394, 22);
+            this.label4.Location = new System.Drawing.Point(38, 150);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 18);
@@ -249,6 +250,7 @@
             // 
             // pnlAcciones
             // 
+            this.pnlAcciones.Controls.Add(this.button1);
             this.pnlAcciones.Controls.Add(this.btnCerrar);
             this.pnlAcciones.Controls.Add(this.btnEliminar);
             this.pnlAcciones.Controls.Add(this.btnEditar);
@@ -295,6 +297,18 @@
             // 
             this.erpCargo.ContainerControl = this;
             // 
+            // button1
+            // 
+            this.button1.Image = global::CpRestaurante.Properties.Resources.icons8_restaurante_32__1_1;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(563, 10);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 38);
+            this.button1.TabIndex = 83;
+            this.button1.Text = "Inicio";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnCancelar
             // 
             this.btnCancelar.Image = global::CpRestaurante.Properties.Resources.close;
@@ -327,7 +341,7 @@
             // 
             this.btnCerrar.Image = global::CpRestaurante.Properties.Resources.close;
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrar.Location = new System.Drawing.Point(510, 4);
+            this.btnCerrar.Location = new System.Drawing.Point(420, 4);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(92, 44);
@@ -342,7 +356,7 @@
             this.btnEliminar.Enabled = false;
             this.btnEliminar.Image = global::CpRestaurante.Properties.Resources.delete;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(339, 4);
+            this.btnEliminar.Location = new System.Drawing.Point(274, 4);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(92, 44);
@@ -357,7 +371,7 @@
             this.btnEditar.Enabled = false;
             this.btnEditar.Image = global::CpRestaurante.Properties.Resources.edit;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(187, 4);
+            this.btnEditar.Location = new System.Drawing.Point(141, 4);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(92, 44);
@@ -371,7 +385,7 @@
             // 
             this.btnNuevo.Image = global::CpRestaurante.Properties.Resources.icons8_verificar_32;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(49, 4);
+            this.btnNuevo.Location = new System.Drawing.Point(18, 4);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(92, 44);
@@ -456,7 +470,6 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.ErrorProvider erpNombre;
         private System.Windows.Forms.ErrorProvider erpPrimerApellido;
         private System.Windows.Forms.ErrorProvider erpSegundoApellido;
@@ -464,5 +477,7 @@
         private System.Windows.Forms.ErrorProvider erpDireccion;
         private System.Windows.Forms.ErrorProvider erpCargo;
         private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtCargo;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -30,3 +30,4 @@ E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.Fr
 E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.FrmLogin.resources
 E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.FrmMenu.resources
 E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.FrmUsuario.resources
+E:\SIS457-RESTAURANTE\Sis457Restaurante\CpRestaurante\obj\Debug\CpRestaurante.FrmAutenticacion.resources
